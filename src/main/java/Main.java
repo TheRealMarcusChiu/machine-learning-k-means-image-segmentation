@@ -11,14 +11,14 @@ import java.util.Random;
 public class Main {
     public static void main(String [] args){
         if (args.length < 3){
-            System.out.println("Usage: Kmeans <input-image> <k> <output-image>");
+            System.out.println("Usage: mvn exec:java -Dexec.mainClass=\"Main\" -Dexec.args=\"Koala.jpg 2 Koala2.jpg\"");
             return;
         }
         try{
             BufferedImage originalImage = ImageIO.read(new File(args[0]));
             int k=Integer.parseInt(args[1]);
             BufferedImage kmeansJpg = kmeans_helper(originalImage,k);
-            ImageIO.write(kmeansJpg, "jpg", new File(args[0]));
+            ImageIO.write(kmeansJpg, "jpg", new File(args[2]));
 
         }catch(IOException e){
             System.out.println(e.getMessage());
